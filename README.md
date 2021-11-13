@@ -1,8 +1,24 @@
 kubernetes-test
 ==
 
+Clone the repo
+--
 ```shell
-virtualenv venv --python=python3
-source venv/bin/activate
-pip install -r requirements.txt
+git clone https://github.com/varmarakesh/kubernetes-test.git
+```
+
+```shell
+cd kubernetes-test
+```
+
+Install virtualenv and python libs
+--
+```shell
+make install
+```
+
+Apply Rules
+--
+```shell
+make run
 ```
