@@ -27,7 +27,7 @@ class Rules(object):
 
     def validate(self, images):
         result = True
-        for rule in self.rules:
+        for rule in self.rules['rules']:
             if rule['name'] == 'image_prefix':
                 image_prefix_rule = self.__validate_image_prefix(
                     images=images
