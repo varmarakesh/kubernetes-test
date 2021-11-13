@@ -10,7 +10,7 @@ class Pod(object):
 
     def get_images(self):
         images = []
-        for item in self.pod.items:
+        for item in self.pods.items:
             for container in item.spec.containers:
                 images.append(container.image)
         return images
