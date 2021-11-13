@@ -1,1 +1,2 @@
 kubernetes
+pytest==4.6
