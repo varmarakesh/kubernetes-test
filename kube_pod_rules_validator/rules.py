@@ -11,12 +11,11 @@ class Rules(object):
             parsed_yaml = yaml.safe_load(rules)
             return parsed_yaml
 
-    def get_rules(self):
-        """
-        return rules as dictionary.
-        :return:
-        """
-        return self.rules
+
+class ApplyRules(object):
+
+    def __init__(self):
+        self.rules = Rules().rules
 
     def __validate_label(self, labels):
         return 'team' in labels.keys()
@@ -34,7 +33,7 @@ class Rules(object):
             image_prefix_rule = self.__validate_image_prefix(
                 images=pod.images
             )
-            team_label_present = self.__validate_label(labels=pods.labels)
+            team_label_present = self.__validate_label(labels=pod.labels)
             pod_result = {
                 'pod': pod.name,
                 'rule_evaluation': [

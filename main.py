@@ -1,15 +1,17 @@
 from kube_pod_rules_validator.pod import PodApi
-from kube_pod_rules_validator.rules import Rules
+from kube_pod_rules_validator.rules import ApplyRules
+import pprint
 
 
 def main():
     pod_api = PodApi()
     pods = pod_api.build_pod_details()
-    rules = Rules()
+    rules = ApplyRules()
     result = rules.validate(
         pods=pods
     )
-    print(result)
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(result)
 
 
 # start of projection execution

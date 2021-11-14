@@ -3,9 +3,9 @@ from kubernetes import client, config
 
 class Pod(object):
 
-    def __init__(self, name, image, labels, recent_start_time=None):
+    def __init__(self, name, images, labels, recent_start_time=None):
         self.name = name
-        self.images = image
+        self.images = images
         self.labels = labels
         self.recent_start_time = recent_start_time
 
@@ -19,7 +19,7 @@ class PodApi(object):
 
     def __get_images(self, pod):
         images = []
-        for container in pod.item.spec.containers:
+        for container in pod.spec.containers:
             images.append(container.image)
         return images
 
