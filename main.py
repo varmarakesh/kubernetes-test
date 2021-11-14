@@ -1,12 +1,15 @@
-from kube_pod_rules_validator.pod import Pod
+from kube_pod_rules_validator.pod import PodApi
 from kube_pod_rules_validator.rules import Rules
 
 
 def main():
-    pod = Pod()
-    images = pod.get_images()
+    pod_api = PodApi()
+    pods = pod_api.build_pod_details()
     rules = Rules()
-    print(rules.validate(images=images))
+    result = rules.validate(
+        pods=pods
+    )
+    print(result)
 
 
 # start of projection execution
