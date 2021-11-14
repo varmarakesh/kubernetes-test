@@ -8,9 +8,14 @@ class Test(unittest.TestCase):
         pass
 
     def test_datetime(self):
+        #  test for datetime.now, substract 2 times
         now = datetime.now()
         past_time = datetime.strptime('Jun 1 2020  1:33PM', '%b %d %Y %I:%M%p')
         time_diff = now - past_time
         self.assertTrue(
             time_diff.days > 7
         )
+
+    def tearDown(self):
+        pass
+

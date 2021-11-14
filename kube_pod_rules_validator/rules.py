@@ -48,7 +48,7 @@ class ApplyRules(object):
         """
         now = datetime.now(timezone.utc)
         time_difference = now - start_time
-        return time_difference.days > ApplyRules.MAX_POD_AGE_IN_DAYS
+        return time_difference.days < ApplyRules.MAX_POD_AGE_IN_DAYS
 
     def validate(self, pods):
         result = []
@@ -77,4 +77,3 @@ class ApplyRules(object):
             }
             result.append(pod_result)
         return result
-
