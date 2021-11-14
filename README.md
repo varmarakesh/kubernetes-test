@@ -19,7 +19,7 @@ Install virtualenv and python libs
 make install
 ```
 
-Apply Rules
+Apply Kubernetes Rules
 --
 ```shell
 make run
